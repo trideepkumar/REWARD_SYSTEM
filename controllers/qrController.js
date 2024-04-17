@@ -4,6 +4,7 @@ const uuid = require('uuid');
 
 const generateQr = async (req, res) => {
     try {
+        
         const { managerId, managerName, cardType } = req.body;
         if (!managerId || !managerName || !cardType) {
             return res.status(400).send('Missing required fields: managerId, managerName, cardType');
