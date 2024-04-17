@@ -3,9 +3,6 @@ const generateQRCode = require('../utils/generateQRCode.js')
 const generateShortUUID = require('../utils/generatreUniqueId.js')
 const {baseUrl} = require('../config/constants.js')
 const generatePDF = require('../utils/generatePdf.js')
-const fs = require('fs');
-const path = require('path');
-const PDFDocument = require('pdfkit');
 const puppeteer = require('puppeteer');
 
 
@@ -70,6 +67,10 @@ const qrScanning = async (req, res) => {
             { $set: { employee: employee, isUsed: true, status: 'awardedToEmployee' }}
         );
 
+        if(!qrCard){
+            res.status(401).json('QR code not Found!')
+        }
+
         console.log(qrCard);
 
         res.status(200).json(qrCard);
@@ -112,7 +113,6 @@ const downloadWithPuppeteer = async (req,res)=>{
         const browser = await puppeteer.launch();
         // Create a new page
         const page = await browser.newPage();
-
         // this is the page where puppeteer take scrnshot 
         // const website_url = '/admin/generateTable';
         // const currentUrl = page.url(); // get the current URL
