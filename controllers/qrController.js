@@ -1,10 +1,13 @@
 const QRCode = require('../models/QrModel.js');
-const qrcode = require('qrcode');
-const uuid = require('uuid');
 const generateQRCode = require('../utils/generateQRCode.js')
 const generateShortUUID = require('../utils/generatreUniqueId.js')
 const {baseUrl} = require('../config/constants.js')
 const generatePDF = require('../utils/generatePdf.js')
+const fs = require('fs');
+const path = require('path');
+const PDFDocument = require('pdfkit');
+const puppeteer = require('puppeteer');
+
 
 
 const generateQr = async (req, res) => {
@@ -55,8 +58,6 @@ const getAllQrcodes = async (req,res) => {
     }
 }
 
-
-
 const qrScanning = async (req, res) => {
     try {
         const { managerName, type, status, uniqueId } = req.params;
@@ -106,5 +107,41 @@ const downloadPdf = async (req,res) => {
     }
 }
 
+const downloadWithPuppeteer = async (req,res)=>{
+    try{
+        const browser = await puppeteer.launch();
+        // Create a new page
+        const page = await browser.newPage();
 
-module.exports = {generateQr,qrScanning,getAllQrcodes,showQr,downloadPdf};
+        // this is the page where puppeteer take scrnshot 
+        // const website_url = '/admin/generateTable';
+        // const currentUrl = page.url(); // get the current URL
+        // const baseUrl = currentUrl.substring(0, currentUrl.indexOf('/', 8)); // get the base URL
+        // const website_url = `${baseUrl}/admin/generateTable`; // construct the full URL
+        const website_url = `${req.protocol}://${req.get("host")}/showqr`;
+   
+        console.log(website_url);
+
+        await page.goto(website_url, { waitUntil: 'networkidle0' });
+
+        //To reflect CSS used for screens instead of print
+        await page.emulateMediaType('screen');
+
+        const pdf = await page.pdf({
+            path: 'result.pdf',
+            //   margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+            printBackground: true,
+            format: 'A4',
+        });
+        res.download('result.pdf');
+
+
+        await browser.close();
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+
+module.exports = {generateQr,qrScanning,getAllQrcodes,showQr,downloadPdf,downloadWithPuppeteer};
