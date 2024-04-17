@@ -62,7 +62,7 @@
         }
 
         .amount-remaining {
-            font-size: 14px;
+            font-size: 18px;
             color: #666;
             margin-bottom: 10px;
         }
@@ -77,7 +77,7 @@
         }
 
         .msg {
-            font-size: 12px;
+            font-size: 14px;
             color: #666;
         }
     </style>
@@ -87,14 +87,14 @@
     <div class="gift-cards-container">
         <% if (qrData?.length > 0) { %>
             <% for (let i=0; i < qrData?.length; i++) { %>
-                <article class="gift-card">
-                    <div class="image">
+                <article class="gift-card" style="background-color: <%= getColor(qrData[i].type) %>">
+                    <div class="image" >
                         <img src="<%= qrData[i].qrCodeImage %>"
                             alt="Gift Image">
                     </div>
                     <section class="content">
                         <div class="amount">Special Gift For You.</div>
-                        <div class="amount-remaining">Coupon type: <%= qrData[i].type %></div>
+                        <div class="amount-remaining">Coupon type: <span style="font-weight: 900;"><%= qrData[i].type %></span></div>
                         <div class="code"><%= qrData[i].uniqueId %></div>
                         <div class="msg">Use this code at checkout to redeem your gift card</div>
                     </section>
@@ -105,5 +105,4 @@
         <% } %>
     </div>
 </body>
-
 </html>

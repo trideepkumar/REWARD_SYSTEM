@@ -83,7 +83,17 @@ const qrScanning = async (req, res) => {
 const showQr = async (req,res) => {
     try {
         const qrData = await QRCode.find({isUsed:false});
-        res.render('viewQr', {qrData})
+        function getColor(type) {
+            switch(type) {
+                case 'gold':
+                    return '#FFD700';
+                case 'silver':
+                    return '#C0C0C0';
+                default:
+                    return '#FFD700'; 
+            }
+        }
+        res.render('viewQr', {qrData,getColor})
     } catch (error) {
         console.error(err);
         res.status(500).send("Something went wrong!");
