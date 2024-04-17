@@ -54,16 +54,28 @@ const getAllQrcodes = async (req,res) => {
     }
 }
 
-const qrScanning = async (req,res) => {
-   try{
-     const {managerName,type,status} = req.params
 
 
+const qrScanning = async (req, res) => {
+    try {
+        const { managerName, type, status, uniqueId } = req.params;
+        const { employee } = req.body;
 
-   }catch(err){
-    console.log(err)
-    res.status(500).send("something went wrong !!!")
-   }
-}
+        console.log(managerName, type, status, employee, uniqueId);
+
+        const qrCard = await QRCode.findOneAndUpdate(
+            { uniqueId: uniqueId },
+            { $set: { employee: employee, isUsed: true, status: 'awardedToEmployee' }}
+        );
+
+        console.log(qrCard);
+
+        res.status(200).json(qrCard);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Something went wrong!");
+    }
+};
+
 
 module.exports = {generateQr,qrScanning,getAllQrcodes};

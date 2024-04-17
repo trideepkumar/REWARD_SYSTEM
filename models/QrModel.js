@@ -7,7 +7,8 @@ const qrCodeSchema = new mongoose.Schema({
     isUsed:{type:Boolean,default:false},
     type: { type: String, required: true,enum: ['gold', 'silver'] },
     qrCodeImage: { type: String, required: true },
-    status:{type:String,default:'generated',enum: ['generated', 'handedToManager', 'awardedToEmployee']}
+    status:{type:String,default:'generated',enum: ['generated', 'handedToManager', 'awardedToEmployee']},
+    employee:{type:String}
 })
 
 const QRCode = mongoose.model('QRCode', qrCodeSchema);
