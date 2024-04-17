@@ -1,6 +1,7 @@
 const QRCode = require('../models/QrModel.js');
 const qrcode = require('qrcode');
 const uuid = require('uuid');
+const generateQRCode = require('../utils/generateQRCode.js')
 
 const generateQr = async (req, res) => {
     try {
@@ -11,6 +12,10 @@ const generateQr = async (req, res) => {
         }
 
         const data = `${uuid.v4()}/${managerName}/${managerId}`;
+        generateQRCode(data, 'qr')
+        console.log("data",data)
+
+
         const qrCodeImage = await qrcode.toDataURL(data);
 
         const qrCode = new QRCode({
