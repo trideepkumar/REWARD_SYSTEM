@@ -4,6 +4,7 @@ const uuid = require('uuid');
 const generateQRCode = require('../utils/generateQRCode.js')
 const generateShortUUID = require('../utils/generatreUniqueId.js')
 const {baseUrl} = require('../config/constants.js')
+const generatePDF = require('../utils/generatePdf.js')
 
 
 const generateQr = async (req, res) => {
@@ -77,5 +78,32 @@ const qrScanning = async (req, res) => {
     }
 };
 
+const showQr = async (req,res) => {
+    try {
+        res.render('viewQr')
+    } catch (error) {
+        console.error(err);
+        res.status(500).send("Something went wrong!");
+    }
+}
 
-module.exports = {generateQr,qrScanning,getAllQrcodes};
+const downloadPdf = async (req,res) => {
+    try {
+        // Get coupons data (assuming it's an array of objects)
+        const couponsData = await QRCode.find({isUsed:false});
+
+        // Generate PDF content for all coupons
+        const pdfContent = await generatePDF(couponsData);
+
+        // Send the PDF file as a response with appropriate headers
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename="coupons.pdf"');
+        res.send(pdfContent);
+    } catch (error) {
+        console.error('Error generating PDF:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+
+module.exports = {generateQr,qrScanning,getAllQrcodes,showQr,downloadPdf};
