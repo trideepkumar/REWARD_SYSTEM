@@ -1,10 +1,13 @@
 const QRCode = require('../models/QrModel.js');
-const qrcode = require('qrcode');
-const uuid = require('uuid');
 const generateQRCode = require('../utils/generateQRCode.js')
 const generateShortUUID = require('../utils/generatreUniqueId.js')
 const {baseUrl} = require('../config/constants.js')
 const generatePDF = require('../utils/generatePdf.js')
+const fs = require('fs');
+const path = require('path');
+const PDFDocument = require('pdfkit');
+const puppeteer = require('puppeteer');
+
 
 
 const generateQr = async (req, res) => {
@@ -54,8 +57,6 @@ const getAllQrcodes = async (req,res) => {
         res.status(500).send('Something went wrong!');
     }
 }
-
-
 
 const qrScanning = async (req, res) => {
     try {
