@@ -1,8 +1,8 @@
-const dev = {
+const config = {
     env: "dev",
-    url: "mongodb+srv://trideepkumar111:LjtSehM21Knui0YU@reward-system.ubl0wue.mongodb.net",
+    dev: "mongodb+srv://trideepkumar111:LjtSehM21Knui0YU@reward-system.ubl0wue.mongodb.net",
     local:"mongodb://127.0.0.1:27017/test"
 }
 
 
-module.exports = { dev }
+module.exports = { config }
