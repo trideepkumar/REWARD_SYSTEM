@@ -1,521 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Special Gift Coupon</title>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Gift Coupon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
-    padding: 100px;
-  }
+        body {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
 
-  .gift-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-content: flex-start;
-    /* margin-top: 200px; */
-  }
+        .gift-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
 
-  .gift-card {
-    border-radius: 10px;
-    background: #fafafa;
-    width: calc(50% - 10px);
-    color: #3d3d3d;
-    display: flex;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-  }
+        .gift-card {
+            border-radius: 10px;
+            background: #fafafa;
+            width: 45%;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden; /* Prevent image overflow */
+            display: flex;
+        }
 
-  .image {
-    flex: 1;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
+        .image {
+            width: 50%;
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
 
-  .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+        .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
 
-  .content {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-  .amount {
-    font-size: 70px;
-  }
+        .amount {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-  .amount-remaining {
-    font-size: 14px;
-    margin-top: 7px;
-  }
+        .amount-remaining {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-  .code {
-    background: white;
-    color: black;
-    padding: 10px 13px;
-    margin-top: 20px;
-    font-size: 18px;
-    border: 1px solid #e3e3e3;
-  }
+        .code {
+            background: white;
+            color: black;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #e3e3e3;
+            margin-bottom: 10px;
+        }
 
-  .msg {
-    font-size: 10px;
-    display: block;
-    margin-top: 10px;
-  }
-</style>
+        .msg {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="gift-cards-container">
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <article class="gift-card">
-      <div class="image"><img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892" alt="Gift Image"></div>
-      <section class="content">
-        <div class="amount">Rs. 100</div>
-        <div class="amount-remaining">Rs. 200 remaining</div>
-        <div class="code">1SD4 2R4G LOK1 XCV0</div>
-        <div class="msg">Use this code at checkout to redeem your gift card</div>
-      </section>
-    </article>
-    <!-- Repeat the article for the remaining cards -->
-  </div>
+    <div class="gift-cards-container">
+        <% if (qrData?.length > 0) { %>
+            <% for (let i=0; i < qrData?.length; i++) { %>
+                <article class="gift-card">
+                    <div class="image">
+                        <img src="https://cdn.shopify.com/s/files/1/2504/3282/files/annie-spratt-102799-unsplash.jpg?15904179471993750892"
+                            alt="Gift Image">
+                    </div>
+                    <section class="content">
+                        <div class="amount">Special Gift For You.</div>
+                        <div class="amount-remaining">Rs. 200</div>
+                        <div class="code"><%= qrData[i].uniqueId %></div>
+                        <div class="msg">Use this code at checkout to redeem your gift card</div>
+                    </section>
+                </article>
+                <% } %>
+        <% } else { %>
+            <h1>coupons are </h1>
+        <% } %>
+    </div>
 </body>
+
 </html>

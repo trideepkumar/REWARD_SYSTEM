@@ -80,7 +80,8 @@ const qrScanning = async (req, res) => {
 
 const showQr = async (req,res) => {
     try {
-        res.render('viewQr')
+        const qrData = await QRCode.find({isUsed:false});
+        res.render('viewQr', {qrData})
     } catch (error) {
         console.error(err);
         res.status(500).send("Something went wrong!");
