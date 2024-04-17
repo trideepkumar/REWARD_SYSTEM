@@ -10,7 +10,7 @@ async function generateQRCode(text) {
 
         // Convert base64 data to buffer
         const qrBuffer = Buffer.from(qrData.split(',')[1], 'base64');
-        const fileName =`${Date.now()}.png`;
+        const fileName =`${Date.now()}`;
         // Save buffer to file
         fs.writeFileSync(`public/${fileName}.png`, qrBuffer);
 
