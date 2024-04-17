@@ -12,16 +12,16 @@ const generateQr = async (req, res) => {
         }
 
         const data = `${uuid.v4()}/${managerName}/${managerId}`;
-        generateQRCode(data, 'qr')
-        console.log("data",data)
+        const qrPath = await generateQRCode(data)
+        console.log("path",qrPath)
 
 
-        const qrCodeImage = await qrcode.toDataURL(data);
+        // const qrCodeImage = await qrcode.toDataURL(data);
 
         const qrCode = new QRCode({
             data: data,
             type: cardType,
-            qrCodeImage: qrCodeImage
+            qrCodeImage: qrPath
         });
 
         await qrCode.save();
