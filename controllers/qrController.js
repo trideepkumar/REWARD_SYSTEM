@@ -20,7 +20,7 @@ const generateQr = async (req, res) => {
         console.log(uniqueId)
 
         const data = `${baseUrl}/?uniqueId=${uniqueId}&managerName=${managerName}&managerId=${managerId}`;
-        const qrPath = await generateQRCode(data, 'qr')
+        const qrPath = await generateQRCode(data)
         console.log("data",data)
 
 
@@ -44,6 +44,16 @@ const generateQr = async (req, res) => {
     }
 };
 
+const getAllQrcodes = async (req,res) => {
+    try {
+        const qrData = await QRCode.find({isUsed:false});
+        res.status(200).json(qrData)
+    } catch (error) {
+        console.error(err);
+        res.status(500).send('Something went wrong!');
+    }
+}
+
 const qrScanning = async (req,res) => {
    try{
      const {managerName,type,status} = req.params
@@ -56,4 +66,4 @@ const qrScanning = async (req,res) => {
    }
 }
 
-module.exports = {generateQr,qrScanning};
+module.exports = {generateQr,qrScanning,getAllQrcodes};
