@@ -19,8 +19,8 @@ const generateQr = async (req, res) => {
 
         console.log(uniqueId)
 
-        const data = `${baseUrl}+/?uniqueId:${uniqueId}/?managerName:${managerName}/?managerId:${managerId}`;
-        generateQRCode(data, 'qr')
+        const data = `${baseUrl}/?uniqueId=${uniqueId}&managerName=${managerName}&managerId=${managerId}`;
+        const qrPath = await generateQRCode(data, 'qr')
         console.log("data",data)
 
 

@@ -3,7 +3,7 @@ const fs = require('fs');
 
 // Function to generate QR code
 
-async function generateQRCode(text, fileName) {
+async function generateQRCode(text) {
     try {
         // Generate QR code
         const qrData = await qr.toDataURL(text);
