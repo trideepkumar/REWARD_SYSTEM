@@ -4,6 +4,7 @@ const qrRouter = require('./routes/qrROuter.js')
 
 const app = express()
 
+app.use(express.json())
 
 app.use('/', qrRouter)
 
