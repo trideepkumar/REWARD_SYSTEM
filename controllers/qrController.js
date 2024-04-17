@@ -62,6 +62,10 @@ const qrScanning = async (req, res) => {
 
         console.log(managerName, type, status, employee, uniqueId);
 
+        if(!managerName, !type, !status, !uniqueId ,!employee){
+            res.status(401).json('Provide correct Details!!')
+        }
+
         const qrCard = await QRCode.findOneAndUpdate(
             { uniqueId: uniqueId },
             { $set: { employee: employee, isUsed: true, status: 'awardedToEmployee' }}
@@ -139,7 +143,7 @@ const downloadWithPuppeteer = async (req,res)=>{
 
         const pdf = await page.pdf({
             path: 'result.pdf',
-            //   margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+            // margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
             printBackground: true,
             format: 'A4',
         });
