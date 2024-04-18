@@ -158,4 +158,28 @@ const downloadWithPuppeteer = async (req,res)=>{
 }
 
 
-module.exports = {generateQr,qrScanning,getAllQrcodes,showQr,downloadPdf,downloadWithPuppeteer};
+const verifyQR = async (req, res, next) => {
+    try {
+        const { uniqueId } = req.params
+        if (!uniqueId) {
+            return res.status(401).json('Invalid QR code found')
+        }
+
+        const qrCode = await QRCode.findOne({ uniqueId, isUsed: false })
+
+        if (qrCode) {
+            req.qrCode = qrCode
+            return next()
+        } else {
+            return res.status(401).json('QR code is already used!')
+        }
+    } catch (err) {
+        console.log(err)
+        return res.status(500).json('Internal Server Error')
+    }
+};
+
+
+
+
+module.exports = {generateQr,qrScanning,getAllQrcodes,showQr,downloadPdf,downloadWithPuppeteer,verifyQR};
