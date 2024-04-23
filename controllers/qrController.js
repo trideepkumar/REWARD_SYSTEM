@@ -63,9 +63,18 @@ const qrScanning = async (req, res) => {
 
         
 
-        if(!uniqueKey, !cardType){
+        if(!uniqueKey || !cardType){
            return res.status(401).json('Provide correct Details!!')
         }
+
+        const qrData = await QRCode.find({
+            uniqueId: uniqueKey,
+        });
+
+        if(qrData[0].isUsed === true){
+            return res.status(401).json('Coupon already claimed.!')
+        }
+        
 
         const qrCard = await QRCode.findOneAndUpdate(
             { uniqueId: uniqueKey },
