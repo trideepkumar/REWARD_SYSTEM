@@ -58,18 +58,18 @@ const getAllQrcodes = async (req,res) => {
 
 const qrScanning = async (req, res) => {
     try {
-        const { managerName, type, status, uniqueId } = req.params;
-        const { employee } = req.body;
+       
+        const { uniqueKey,cardType } = req.body;
 
-        console.log(managerName, type, status, employee, uniqueId);
+        
 
-        if(!managerName, !type, !status, !uniqueId ,!employee){
+        if(!uniqueKey, !cardType){
             res.status(401).json('Provide correct Details!!')
         }
 
         const qrCard = await QRCode.findOneAndUpdate(
-            { uniqueId: uniqueId },
-            { $set: { employee: employee, isUsed: true, status: 'awardedToEmployee' }}
+            { uniqueId: uniqueKey },
+            { $set: {  isUsed: true, status: 'awardedToEmployee' }}
         );
 
         if(!qrCard){
