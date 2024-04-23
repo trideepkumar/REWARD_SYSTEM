@@ -64,7 +64,7 @@ const qrScanning = async (req, res) => {
         
 
         if(!uniqueKey, !cardType){
-            res.status(401).json('Provide correct Details!!')
+           return res.status(401).json('Provide correct Details!!')
         }
 
         const qrCard = await QRCode.findOneAndUpdate(
@@ -73,7 +73,7 @@ const qrScanning = async (req, res) => {
         );
 
         if(!qrCard){
-            res.status(401).json('QR code not Found!')
+           return res.status(401).json('QR code not Found!')
         }
 
         console.log(qrCard);
@@ -81,7 +81,7 @@ const qrScanning = async (req, res) => {
         res.status(200).json(qrCard);
     } catch (err) {
         console.error(err);
-        res.status(500).send("Something went wrong!");
+       return res.status(500).send("Something went wrong!");
     }
 };
 
