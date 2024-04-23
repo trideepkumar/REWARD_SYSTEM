@@ -63,7 +63,7 @@ const qrScanning = async (req, res) => {
 
         
 
-        if(!uniqueKey, !cardType){
+        if(!uniqueKey || !cardType){
            return res.status(401).json('Provide correct Details!!')
         }
 
