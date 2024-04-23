@@ -59,6 +59,8 @@ const getAllQrcodes = async (req,res) => {
 const qrScanning = async (req, res) => {
     try {
        
+        console.log(req.body,'body')
+
         const { uniqueKey,cardType } = req.body;
 
         
