@@ -20,7 +20,7 @@ const generateQr = async (req, res) => {
 
         console.log(uniqueId)
 
-        const data = `{uniqueKey:${uniqueId},cardType:${cardType}}`;
+        const data = JSON.stringify({uniqueKey:uniqueId,cardType:cardType});
 
         const qrPath = await generateQRCode(data)
         console.log("data",data)
