@@ -89,7 +89,7 @@ const qrScanning = async (req, res) => {
 
         console.log(qrCard);
 
-        res.status(200).json(qrCard);
+        res.status(200).json("coupon claimed successfully..");
     } catch (err) {
         console.error(err);
        return res.status(500).send("Something went wrong!");
