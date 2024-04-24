@@ -1,0 +1,52 @@
+[
+  {
+    "name": "John Doe",
+    "department": "Sales",
+    "email": "john.doe@example.com"
+  },
+  {
+    "name": "Jane Smith",
+    "department": "Marketing",
+    "email": "jane.smith@example.com"
+  },
+  {
+    "name": "Michael Johnson",
+    "department": "Human Resources",
+    "email": "michael.johnson@example.com"
+  },
+  {
+    "name": "Emily Brown",
+    "department": "Finance",
+    "email": "emily.brown@example.com"
+  },
+  {
+    "name": "David Wilson",
+    "department": "Operations",
+    "email": "david.wilson@example.com"
+  },
+  {
+    "name": "Sarah Lee",
+    "department": "Product Management",
+    "email": "sarah.lee@example.com"
+  },
+  {
+    "name": "Robert Martinez",
+    "department": "Information Technology",
+    "email": "robert.martinez@example.com"
+  },
+  {
+    "name": "Jennifer Taylor",
+    "department": "Customer Support",
+    "email": "jennifer.taylor@example.com"
+  },
+  {
+    "name": "Daniel Anderson",
+    "department": "Research and Development",
+    "email": "daniel.anderson@example.com"
+  },
+  {
+    "name": "Mary Clark",
+    "department": "Quality Assurance",
+    "email": "mary.clark@example.com"
+  }
+]
