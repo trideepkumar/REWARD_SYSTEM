@@ -228,7 +228,8 @@ const updateManager = async (req, res) => {
         const { managerName } = req.body
 
         await QRCode.findByIdAndUpdate(id, {
-            managerName
+            managerName,
+            $set: { status: 'claimed' }
         })
 
         // res.redirect('/getreports')
